@@ -1,0 +1,53 @@
+.treeMass{
+    list-style: none;
+    
+}
+.treeMass li{
+    display: block;
+    position: relative;
+    margin-bottom: 16px;
+    margin-left: -12px;
+}
+.treeMass ul li{
+    margin-bottom: 10px;
+    display: block;
+}
+
+.treeMass ul li::before{
+    display: block;
+    position: absolute;
+    content: '';
+    left: -10px;
+    top: -1px;
+}
+.specialList ul li{
+    display: block;
+    content: '';
+}
+
+.treeMass ul{
+    padding-left : 20px;
+    margin-top: 10px;
+    display: block;
+    content: '';
+}
+.treeMass summary{
+    display: block;
+}
+
+.treeMass summary::before{
+    content       : 'μ';
+    display       : block;
+    position      : absolute;
+    cursor: pointer;
+    left: -20px;
+    
+  }
+  
+.treeMass summary::before{
+    z-index    : 1;
+}
+  
+.treeMass details[open] > summary::before{
+ content: 'υ';
+}

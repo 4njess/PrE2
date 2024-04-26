@@ -1,0 +1,88 @@
+.tree2{
+    display: block;
+}
+.tree2 summary::before{
+    content: '';
+    display: block;
+    position: relative;
+    opacity: 0;
+}
+
+
+
+.tree3 ul li::before{
+    display: block;
+    position: absolute;
+    content: 'ι';
+}
+.tree4 li{
+    display: block;
+    position: relative;
+    top: -3px;
+}
+
+.tree4 li::before{
+    opacity: 0;
+}
+.tree4 ul li::before{
+    opacity: 1;
+    display: block;
+    position: absolute;  
+}
+.tree4 ul li::after{
+    opacity: 1;
+    display: block;
+    position: absolute;  
+}
+.tree4 summary{
+    display: block;
+    position: relative;
+    left: -10px;
+
+}
+.tree4 summary::before{
+    display: block;
+    left: -12px;
+
+}
+
+.tree2 li::before{
+    display: block;
+    position: relative;
+    top: -35px;
+}
+.tree2 summary::before{
+    display: block;
+    position: relative;
+    left: 24px;
+}
+
+
+.tree5 li::before{
+    opacity: 0;
+}
+.tree5 ul li::before{
+    opacity: 1;
+    display: block;
+    position: absolute;  
+}
+.tree5 ul li::after{
+    opacity: 1;
+    display: block;
+    position: absolute;  
+}
+.tree5 summary{
+    display: block;
+    position: relative;
+    left: -12px
+}
+.tree5 summary::before{
+    display: block;
+    left: -20px;
+
+}
+.tree5 li{
+    display: block;
+    position: relative;
+    top: -3px;
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Dynamic HTML Using Handlebars JavaScript
+    </title>
+    <link rel="stylesheet" href="./styles/general.css">
+    <link rel="stylesheet" href="./styles/simple.css">
+    <link rel="stylesheet" href="./styles/arr.css">
+    <link rel="stylesheet" href="./styles/adv.css">
+
+</head>
+
+<body>
+    <div class="knopki">
+    <h3>Получить данные:</h3>
+    <script type="module" src="modules/main.js"></script>
+    <a id="12"><button id="button1" class="button1">Запрос</button></a>
+    </div>
+    <div class="lists">
+        <div class="itemlist" id="itemlist"></div>
+        <div class="itemlist2" id="itemlist2"></div>
+        <div class="itemlist3" id="itemlist3"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js">
+    </script>
+    <!-- ................................................................................ -->  
+    <!-- 1 CТОЛБ-->
+    <!-- .......... -->
+    <script id="template" type="text/x-handlebars-template">
+        {{#each items}}
+            <div class="simple">
+                <h3>Простые атрибуты:</h3>
+                <p>
+                   GisConfig: null
+                </p>
+                <p>
+                    Id: {{Id}}
+                </p>
+                <p>
+                    ProductType: {{ProductType}}
+                </p>
+                <p>
+                    RevNum: {{RevNum}}
+                </p>
+                <p>
+                    SenderId: {{SenderId}}
+                </p>
+                <p>
+                    ServerVersion: {{ServerVersion}}
+                </p>
+                <p>
+                    Timestamp: {{Timestamp}}
+                </p>
+                <p>
+                    UseTimeZones: {{UseTimeZones}}
+                </p>
+                <p>
+                    WorldMapConfig: null
+                </p>
+                <p>
+                    XmlProtocolVersion: {{XmlProtocolVersion}}
+                </p>
+            </div>
+        {{/each}}
+    </script>
+    <!-- .............................................................................................................. -->  
+    <!-- 2 CТОЛБ-->
+    <!-- .......... -->
+    <script id="template2" type="text/x-handlebars-template">
+        {{#each items2}}
+            <div class="hard">
+                <h3>Сложные атрибуты:</h3>
+                <ul id="tree" class="tree">
+                    <li><details><summary>MobileDevicesCapabilities</summary>
+                        <ul>
+                            <li>AndroidMobilePush: {{MobileDevicesCapabilities.AndroidMobilePush}}
+                            <li>AppleMobilePush: {{MobileDevicesCapabilities.AppleMobilePush}}
+                            <li>Archive: {{MobileDevicesCapabilities.Archive}}
+                            <li>Gis: {{MobileDevicesCapabilities.Gis}}
+                            <li>Hls: {{MobileDevicesCapabilities.Hls}}
+                            <li>Profiles: {{MobileDevicesCapabilities.Profiles}}
+                            <li>Ptz: {{MobileDevicesCapabilities.Ptz}}
+                            <li>UserScenarios: {{MobileDevicesCapabilities.UserScenarios}}
+                        </ul>
+                        </details>
+                    <li><details style="margin-bottom: 20px;"><summary>MobileServerInfo</summary> 
+                        <ul>
+                            <li>FpsLimit: {{MobileServerInfo.FpsLimit  }}
+                            <li>HighResolution: {{MobileServerInfo.HighResolution}}
+                            <li>IsEnabled: {{MobileServerInfo.IsEnabled}}
+                            <li>IsMobilePushEnabled: {{MobileServerInfo.IsMobilePushEnabled}}
+                            <li>IsProxyEnabled: {{MobileServerInfo.IsProxyEnabled}}
+                            <li>LowResolution: {{MobileServerInfo.LowResolution}}
+                            <li>MiddleResolution: {{MobileServerInfo.MiddleResolution}}
+                            <li>Port: {{MobileServerInfo.Port}}
+                            <ul class="tree4">
+                                <li><details><summary>[ Resolutions ]:</summary>
+                                    <ul>
+                                        <li><details><summary>0:</summary>
+                                        <ul>
+                                            <li>FpsLimit: {{MobileServerInfo.Resolutions.[0].FpsLimit}}
+                                            <li>Height: {{MobileServerInfo.Resolutions.[0].Height}}
+                                            <li>IsEnabled: {{MobileServerInfo.Resolutions.[0].IsEnabled}}
+                                            <li>Type: {{MobileServerInfo.Resolutions.[0].Type}}
+                                            <li>UsePFrames: {{MobileServerInfo.Resolutions.[0].UsePFrames}}
+                                            <li>Width: {{MobileServerInfo.Resolutions.[0].Width}}
+                                        </ul>
+                                        </details>
+                                        <li><details><summary>1:</summary>
+                                            <ul>
+                                                <li>FpsLimit: {{MobileServerInfo.Resolutions.[1].FpsLimit}}
+                                                    <li>Height: {{MobileServerInfo.Resolutions.[1].Height}}
+                                                    <li>IsEnabled: {{MobileServerInfo.Resolutions.[1].IsEnabled}}
+                                                    <li>Type: {{MobileServerInfo.Resolutions.[1].Type}}
+                                                    <li>UsePFrames: {{MobileServerInfo.Resolutions.[1].UsePFrames}}
+                                                    <li>Width: {{MobileServerInfo.Resolutions.[1].Width}}
+                                            </ul></details>
+                                        <li><details><summary>2:</summary>
+                                            <ul>
+                                                <li>FpsLimit: {{MobileServerInfo.Resolutions.[2].FpsLimit}}
+                                                    <li>Height: {{MobileServerInfo.Resolutions.[2].Height}}
+                                                    <li>IsEnabled: {{MobileServerInfo.Resolutions.[2].IsEnabled}}
+                                                    <li>Type: {{MobileServerInfo.Resolutions.[2].Type}}
+                                                    <li>UsePFrames: {{MobileServerInfo.Resolutions.[2].UsePFrames}}
+                                                    <li>Width: {{MobileServerInfo.Resolutions.[2].Width}}
+                                            </ul></details>
+                                    </ul>
+                                </details>
+                            </ul>
+                            <li>UsePFrames: {{MobileServerInfo.UsePFrames}}    
+                        </ul>
+                        </details>
+                    <ul class="tree5">
+                    <li><details><summary>RootSecObject:</summary>
+                    <ul>
+                        <li><details><summary>[ ChildChannels ]</summary>
+                            <ul>
+                            </ul>
+                            </details>
+                        <li><details><summary>[ ChildSecObjects ]</summary>
+                            <ul>
+                                <li><details><summary>0</summary>
+                                <ul>
+                                    <li><details><summary>[ ChildChannels ]</summary>
+                                    <ul>
+                                        <li>0: {{RootSecObject.[ChildSecObjects].[0].[ChildChannels].[0]}}
+                                        <li>1: {{RootSecObject.[ChildSecObjects].[0].[ChildChannels].[1]}}
+                                    </ul></details>
+                                    <li><details><summary>[ ChildSecObjects ]:</summary>
+                                        <ul>
+                                        </ul>
+                                        </details>
+                                    <li>Id: {{RootSecObject.[ChildSecObjects].[0].Id}}
+                                    <li>Name: {{RootSecObject.[ChildSecObjects].[0].Name}}
+                                </ul></details>
+                                <li><details><summary>1</summary>
+                                    <ul>
+                                        <li><details><summary>[ ChildChannels ]</summary>
+                                            <ul>
+                                                <li>0: {{RootSecObject.[ChildSecObjects].[1].[ChildChannels].[0]}}
+                                                <li>1: {{RootSecObject.[ChildSecObjects].[1].[ChildChannels].[1]}}
+                                                <li>2: {{RootSecObject.[ChildSecObjects].[1].[ChildChannels].[2]}}
+                                            </ul></details>
+                                            <li><details><summary>[ ChildSecObjects ]:</summary>
+                                                <ul>
+        
+                                                </ul>
+                                                </details>
+                                            <li>Id: {{RootSecObject.[ChildSecObjects].[1].Id}}
+                                            <li>Name: {{RootSecObject.[ChildSecObjects].[1].Name}}
+                                    </ul></details>
+                            </ul>
+                            </details>
+                        <li>Id: {{RootSecObject.Id}}
+                        <li>Name: {{RootSecObject.Name}}
+                    </ul>
+                    </details>
+                    </ul>
+                    <li><details><summary>RtspServerInfo</summary>
+                        <ul>
+                            <li>IsEnabled: {{RtspServerInfo.IsEnabled}}
+                            <li>IsMjpegEnabled: {{RtspServerInfo.IsMjpegEnabled}}
+                            <li>TcpPort: {{RtspServerInfo.TcpPort}}
+                        </ul>
+                        </details>
+                    <li>
+                        <details><summary>UserGroup</summary>
+                        <ul>
+                            <li>CanAccessArchiveMarks: {{UserGroup.CanAccessArchiveMarks  }}
+                            <li>CanAccessEditingAnalystPluginsInClient: {{UserGroup.CanAccessEditingAnalystPluginsInClient}}
+                            <li>CanAccessExpertMode: {{UserGroup.CanAccessExpertMode}}
+                            <li>CanAccessGis: {{UserGroup.CanAccessGis}}
+                            <li>CanAccessNewCamera: {{UserGroup.CanAccessNewCamera}}
+                            <li>CanAccessPlans: {{UserGroup.CanAccessPlans}}
+                            <li>CanAccessReports: {{UserGroup.CanAccessReports}}
+                            <li>CanAccessSearch: {{UserGroup.CanAccessSearch}}
+                            <li>CanAccessToAllUsersInUnifiedLog: {{UserGroup.CanAccessToAllUsersInUnifiedLog}}    
+                            <li>CanAccessUnifiedLog: {{UserGroup.CanAccessUnifiedLog  }}
+                            <li>CanAccessVideoViaSmartTV: {{UserGroup.CanAccessVideoViaSmartTV}}
+                            <li>CanAccessVideoViaWeb: {{UserGroup.CanAccessVideoViaWeb}}
+                            <li>CanBrowsingVideowall: {{UserGroup.CanBrowsingVideowall}}
+                            <li>CanChangeChannelMode: {{UserGroup.CanChangeChannelMode}}
+                            <li>CanChangePassword: {{UserGroup.CanChangePassword}}
+                            <li>CanConfigure: {{UserGroup.CanConfigure}}
+                            <li>CanConfigureVideowall: {{UserGroup.CanConfigureVideowall}}
+                            <li>CanConfigureWorkplace: {{UserGroup.CanConfigureWorkplace}}    
+                            <li>CanExportVideoToAvi: {{UserGroup.CanExportVideoToAvi  }}
+                            <li>CanGetTranscodedVideoFromMobileServer: {{UserGroup.CanGetTranscodedVideoFromMobileServer}}
+                            <li>CanManageRec: {{UserGroup.CanManageRec}}
+                            <li>CanPTZ: {{UserGroup.CanPTZ}}
+                            <li>CanReceiveMainStream: {{UserGroup.CanReceiveMainStream}}
+                            <li>CanReceiveMobilePush: {{UserGroup.CanReceiveMobilePush}}
+                            <li>CanReceiveSound: {{UserGroup.CanReceiveSound}}
+                            <li>CanRunUserScenarios: {{UserGroup.CanRunUserScenarios}}
+                            <li>CanShutdown: {{UserGroup.CanShutdown}}    
+                            <li>CanTransmitSound: {{UserGroup.CanTransmitSound  }}
+                            <li>CanUseArchiveExport: {{UserGroup.CanUseArchiveExport}}
+                            <ul class="tree4">
+                            <li><details><summary>[ GridTypesAllowed ]:</summary> 
+                                <ul>
+                                    <li>0: {{UserGroup.GridTypesAllowed.[0]}}
+                                    <li>1: {{UserGroup.GridTypesAllowed.[1]}}
+                                    <li>2: {{UserGroup.GridTypesAllowed.[2]}}
+                                    <li>3: {{UserGroup.GridTypesAllowed.[3]}}
+                                    <li>4: {{UserGroup.GridTypesAllowed.[4]}}
+                                    <li>5: {{UserGroup.GridTypesAllowed.[5]}}
+                                    <li>6: {{UserGroup.GridTypesAllowed.[6]}}
+                                    <li>7: {{UserGroup.GridTypesAllowed.[7]}}
+                                    <li>8: {{UserGroup.GridTypesAllowed.[8]}}
+                                    <li>9: {{UserGroup.GridTypesAllowed.[9]}}
+                                    <li>10: {{UserGroup.GridTypesAllowed.[10]}}
+                                    <li>11: {{UserGroup.GridTypesAllowed.[11]}}
+                                    <li>12: {{UserGroup.GridTypesAllowed.[12]}}
+                                    <li>13: {{UserGroup.GridTypesAllowed.[13]}}
+                                    <li>14: {{UserGroup.GridTypesAllowed.[14]}}
+                                    <li>15: {{UserGroup.GridTypesAllowed.[15]}}
+                                    <li>16: {{UserGroup.GridTypesAllowed.[16]}}
+                                    <li>17: {{UserGroup.GridTypesAllowed.[17]}}
+                                    <li>18: {{UserGroup.GridTypesAllowed.[18]}}
+                                    <li>19: {{UserGroup.GridTypesAllowed.[19]}}
+                                    <li>20: {{UserGroup.GridTypesAllowed.[20]}}
+                                    <li>21: {{UserGroup.GridTypesAllowed.[21]}}
+                                    <li>22: {{UserGroup.GridTypesAllowed.[22]}}
+                                    <li>23: {{UserGroup.GridTypesAllowed.[23]}}
+                                    <li>24: {{UserGroup.GridTypesAllowed.[24]}}
+                                    <li>25: {{UserGroup.GridTypesAllowed.[25]}}
+                                    <li>26: {{UserGroup.GridTypesAllowed.[26]}}
+                                    <li>27: {{UserGroup.GridTypesAllowed.[27]}}
+                                    <li>28: {{UserGroup.GridTypesAllowed.[28]}}
+                                    <li>29: {{UserGroup.GridTypesAllowed.[29]}}
+                                    <li>30: {{UserGroup.GridTypesAllowed.[30]}}
+                                </ul>
+                            </details>
+                            </ul>
+                            <li>Id: {{UserGroup.Id}}
+                            <li>IsAllForbidden: {{UserGroup.IsAllForbidden}}
+                            <li>MessengerCanReceiveMessages: {{UserGroup.MessengerCanReceiveMessages}}
+                            <li>MessengerCanSendMessages: {{UserGroup.MessengerCanSendMessages}}
+                            <li>Name: {{UserGroup.Name}}
+                            <li>PtzPriority: {{UserGroup.PtzPriority}}    
+                        </ul>
+                        </details>                               
+                </ul>
+                </div>
+        {{/each}}
+    </script>
+    <!-- .................................................................................................... -->  
+    <!-- 3 CТОЛБ-->
+    <!-- .......... -->
+    <script id="template3" type="text/x-handlebars-template">
+        {{#each items3}}
+        <div class="mass">
+            <h3>Массивы:</h3>
+            <ul id="tree2" class="treeMass">
+                <li><details><summary>[ Channels ]:</summary>
+                        <ul class="tree3">
+                            <li><details><summary>0:</summary> 
+                                <ul>
+                                    <li>AllowedArchive: {{Channels.[0].AllowedArchive}}
+                                    <li>AllowedRealtime: {{Channels.[0].AllowedRealtime}}
+                                    <li>ArchiveMode: {{Channels.[0].ArchiveMode}}
+                                    <li>ArchiveRotationMode: {{Channels.[0].ArchiveRotationMode}}
+                                    <li>ArchiveStreamType: {{Channels.[0].ArchiveStreamType}}
+                                    <li>ArchiveVideoFormat: {{Channels.[0].ArchiveVideoFormat}}
+                                    <li>AttachedToServer: {{Channels.[0].AttachedToServer}}
+                                    <li>Description: {{Channels.[0].Description}}
+                                    <li>DeviceInfo: {{Channels.[0].DeviceInfo}}
+                                    <li>GeoPosition: null
+                                    <li>Id: {{Channels.[0].Id}}
+                                    <li>IsArchivingEnabled: {{Channels.[0].IsArchivingEnabled}}
+                                    <li>IsDisabled: {{Channels.[0].IsDisabled}}
+                                    <li>IsFaceRecOn: {{Channels.[0].IsFaceRecOn}}
+                                    <li>IsObjectCountingOn: {{Channels.[0].IsObjectCountingOn}}
+                                    <li>IsPeopleCountingOn: {{Channels.[0].IsPeopleCountingOn}}
+                                    <li>IsPtzOn: {{Channels.[0].IsPtzOn}}
+                                    <li>IsSoundArchivingEnabled: {{Channels.[0].IsSoundArchivingEnabled}}
+                                    <li>IsSoundOn: {{Channels.[0].IsSoundOn}}
+                                    <li>IsTransmitSoundOn: {{Channels.[0].IsTransmitSoundOn}}
+                                    <li>Name: {{Channels.[0].Name}}
+                                        <ul class="tree4">
+                                            <li><details><summary>[ Streams ]:</summary>
+                                            <ul>
+                                                <li><details><summary>0:</summary>
+                                                <ul>
+                                                    <li>RotationMode:{{Channels.[0].Streams.[0].RotationMode}}
+                                                    <li>StreamFormat:{{Channels.[0].Streams.[0].StreamFormat}}
+                                                    <li>StreamType:{{Channels.[0].Streams.[0].StreamType}}
+                                                </ul></details>
+                                            </ul>
+                                            </details>
+                                            </ul>                                       
+                                    <li>TimeZoneOffset: {{Channels.[0].TimeZoneOffset}}
+                                    <li>[ UserScenarios ]: null
+                                </ul>
+                            </details>
+                            
+                            <li><details><summary>1:</summary> 
+                                <ul>
+                                    <li>AllowedArchive: {{Channels.[1].AllowedArchive}}
+                                        <li>AllowedRealtime: {{Channels.[1].AllowedRealtime}}
+                                        <li>ArchiveMode: {{Channels.[1].ArchiveMode}}
+                                        <li>ArchiveRotationMode: {{Channels.[1].ArchiveRotationMode}}
+                                        <li>ArchiveStreamType: {{Channels.[1].ArchiveStreamType}}
+                                        <li>ArchiveVideoFormat: {{Channels.[1].ArchiveVideoFormat}}
+                                        <li>AttachedToServer: {{Channels.[1].AttachedToServer}}
+                                        <li>Description: {{Channels.[1].Description}}
+                                        <li>DeviceInfo: {{Channels.[1].DeviceInfo}}
+                                        <li>GeoPosition: null
+                                        <li>Id: {{Channels.[1].Id}}
+                                        <li>IsArchivingEnabled: {{Channels.[1].IsArchivingEnabled}}
+                                        <li>IsDisabled: {{Channels.[1].IsDisabled}}
+                                        <li>IsFaceRecOn: {{Channels.[1].IsFaceRecOn}}
+                                        <li>IsObjectCountingOn: {{Channels.[1].IsObjectCountingOn}}
+                                        <li>IsPeopleCountingOn: {{Channels.[1].IsPeopleCountingOn}}
+                                        <li>IsPtzOn: {{Channels.[1].IsPtzOn}}
+                                        <li>IsSoundArchivingEnabled: {{Channels.[1].IsSoundArchivingEnabled}}
+                                        <li>IsSoundOn: {{Channels.[1].IsSoundOn}}
+                                        <li>IsTransmitSoundOn: {{Channels.[1].IsTransmitSoundOn}}
+                                        <li>Name: {{Channels.[1].Name}}
+                                            <ul class="tree4">
+                                                <li><details><summary>[ Streams ]:</summary>
+                                                <ul >
+                                                    <li><details><summary>0:</summary>
+                                                    <ul>
+                                                        <li>RotationMode:{{Channels.[1].Streams.[0].RotationMode}}
+                                                        <li>StreamFormat:{{Channels.[1].Streams.[0].StreamFormat}}
+                                                        <li>StreamType:{{Channels.[1].Streams.[0].StreamType}}
+                                                    </ul></details>
+                                                </ul>
+                                                </details>
+                                                </ul>   
+                                        <li>TimeZoneOffset: {{Channels.[1].TimeZoneOffset}}
+                                        <li>[ UserScenarios ]: null
+                                </ul>
+                            </details>
+                            
+                            <li><details><summary>2:</summary> 
+                                <ul>
+                                    <li>AllowedArchive: {{Channels.[2].AllowedArchive}}
+                                        <li>AllowedRealtime: {{Channels.[2].AllowedRealtime}}
+                                        <li>ArchiveMode: {{Channels.[2].ArchiveMode}}
+                                        <li>ArchiveRotationMode: {{Channels.[2].ArchiveRotationMode}}
+                                        <li>ArchiveStreamType: {{Channels.[2].ArchiveStreamType}}
+                                        <li>ArchiveVideoFormat: {{Channels.[2].ArchiveVideoFormat}}
+                                        <li>AttachedToServer: {{Channels.[2].AttachedToServer}}
+                                        <li>Description: {{Channels.[2].Description}}
+                                        <li>DeviceInfo: {{Channels.[2].DeviceInfo}}
+                                        <li>GeoPosition: null
+                                        <li>Id: {{Channels.[2].Id}}
+                                        <li>IsArchivingEnabled: {{Channels.[2].IsArchivingEnabled}}
+                                        <li>IsDisabled: {{Channels.[2].IsDisabled}}
+                                        <li>IsFaceRecOn: {{Channels.[2].IsFaceRecOn}}
+                                        <li>IsObjectCountingOn: {{Channels.[2].IsObjectCountingOn}}
+                                        <li>IsPeopleCountingOn: {{Channels.[2].IsPeopleCountingOn}}
+                                        <li>IsPtzOn: {{Channels.[2].IsPtzOn}}
+                                        <li>IsSoundArchivingEnabled: {{Channels.[2].IsSoundArchivingEnabled}}
+                                        <li>IsSoundOn: {{Channels.[2].IsSoundOn}}
+                                        <li>IsTransmitSoundOn: {{Channels.[2].IsTransmitSoundOn}}
+                                        <li>Name: {{Channels.[2].Name}}
+                                            <ul class="tree4">
+                                                <li><details><summary>[ Streams ]:</summary>
+                                                <ul >
+                                                    <li><details><summary>0:</summary>
+                                                    <ul>
+                                                        <li>RotationMode:{{Channels.[2].Streams.[0].RotationMode}}
+                                                        <li>StreamFormat:{{Channels.[2].Streams.[0].StreamFormat}}
+                                                        <li>StreamType:{{Channels.[2].Streams.[0].StreamType}}
+                                                    </ul></details>
+                                                </ul>
+                                                </details>
+                                                </ul>   
+                                        <li>TimeZoneOffset: {{Channels.[2].TimeZoneOffset}}
+                                        <li>[ UserScenarios ]: null
+                                </ul>
+                            </details>       
+                            <li><details><summary>3:</summary> 
+                                <ul>
+                                    <li>AllowedArchive: {{Channels.[3].AllowedArchive}}
+                                        <li>AllowedRealtime: {{Channels.[3].AllowedRealtime}}
+                                        <li>ArchiveMode: {{Channels.[3].ArchiveMode}}
+                                        <li>ArchiveRotationMode: {{Channels.[3].ArchiveRotationMode}}
+                                        <li>ArchiveStreamType: {{Channels.[3].ArchiveStreamType}}
+                                        <li>ArchiveVideoFormat: {{Channels.[3].ArchiveVideoFormat}}
+                                        <li>AttachedToServer: {{Channels.[3].AttachedToServer}}
+                                        <li>Description: {{Channels.[3].Description}}
+                                        <li>DeviceInfo: {{Channels.[3].DeviceInfo}}
+                                        <li>GeoPosition: null
+                                        <li>Id: {{Channels.[3].Id}}
+                                        <li>IsArchivingEnabled: {{Channels.[3].IsArchivingEnabled}}
+                                        <li>IsDisabled: {{Channels.[3].IsDisabled}}
+                                        <li>IsFaceRecOn: {{Channels.[3].IsFaceRecOn}}
+                                        <li>IsObjectCountingOn: {{Channels.[3].IsObjectCountingOn}}
+                                        <li>IsPeopleCountingOn: {{Channels.[3].IsPeopleCountingOn}}
+                                        <li>IsPtzOn: {{Channels.[3].IsPtzOn}}
+                                        <li>IsSoundArchivingEnabled: {{Channels.[3].IsSoundArchivingEnabled}}
+                                        <li>IsSoundOn: {{Channels.[3].IsSoundOn}}
+                                        <li>IsTransmitSoundOn: {{Channels.[3].IsTransmitSoundOn}}
+                                        <li>Name: {{Channels.[3].Name}}
+                                        <ul class="tree4">
+                                        <li><details><summary>[ Streams ]:</summary>
+                                        <ul >
+                                            <li><details><summary>0:</summary>
+                                            <ul>
+                                                <li>RotationMode:{{Channels.[3].Streams.[0].RotationMode}}
+                                                <li>StreamFormat:{{Channels.[3].Streams.[0].StreamFormat}}
+                                                <li>StreamType:{{Channels.[3].Streams.[0].StreamType}}
+                                            </ul></details>
+                                        </ul>
+                                        </details>
+                                        </ul>        
+                                        <li>TimeZoneOffset: {{Channels.[3].TimeZoneOffset}}
+                                        <li>[ UserScenarios ]: null
+                                </ul>
+                            </details>
+                            
+                            <li><details><summary>4:</summary> 
+                                <ul>
+                                    <li>AllowedArchive: {{Channels.[4].AllowedArchive}}
+                                        <li>AllowedRealtime: {{Channels.[4].AllowedRealtime}}
+                                        <li>ArchiveMode: {{Channels.[4].ArchiveMode}}
+                                        <li>ArchiveRotationMode: {{Channels.[4].ArchiveRotationMode}}
+                                        <li>ArchiveStreamType: {{Channels.[4].ArchiveStreamType}}
+                                        <li>ArchiveVideoFormat: {{Channels.[4].ArchiveVideoFormat}}
+                                        <li>AttachedToServer: {{Channels.[4].AttachedToServer}}
+                                        <li>Description: {{Channels.[4].Description}}
+                                        <li>DeviceInfo: {{Channels.[4].DeviceInfo}}
+                                        <li>GeoPosition: null
+                                        <li>Id: {{Channels.[4].Id}}
+                                        <li>IsArchivingEnabled: {{Channels.[4].IsArchivingEnabled}}
+                                        <li>IsDisabled: {{Channels.[4].IsDisabled}}
+                                        <li>IsFaceRecOn: {{Channels.[4].IsFaceRecOn}}
+                                        <li>IsObjectCountingOn: {{Channels.[4].IsObjectCountingOn}}
+                                        <li>IsPeopleCountingOn: {{Channels.[4].IsPeopleCountingOn}}
+                                        <li>IsPtzOn: {{Channels.[4].IsPtzOn}}
+                                        <li>IsSoundArchivingEnabled: {{Channels.[4].IsSoundArchivingEnabled}}
+                                        <li>IsSoundOn: {{Channels.[4].IsSoundOn}}
+                                        <li>IsTransmitSoundOn: {{Channels.[4].IsTransmitSoundOn}}
+                                        <li>Name: {{Channels.[4].Name}}
+                                            <ul class="tree4">
+                                                <li><details><summary>[ Streams ]:</summary>
+                                                <ul >
+                                                    <li><details><summary>0:</summary>
+                                                    <ul>
+                                                        <li>RotationMode:{{Channels.[4].Streams.[0].RotationMode}}
+                                                        <li>StreamFormat:{{Channels.[4].Streams.[0].StreamFormat}}
+                                                        <li>StreamType:{{Channels.[4].Streams.[0].StreamType}}
+                                                    </ul></details>
+                                                </ul>
+                                                </details>
+                                                </ul>   
+                                        <li>TimeZoneOffset: {{Channels.[4].TimeZoneOffset}}
+                                        <li>[ UserScenarios ]: null
+                                </ul>
+                            </details>
+                        </ul>
+                    </details>                    
+                <li><details><summary>[ Servers ]:</summary>
+                    <ul class="tree3">
+                        <li><details><summary>0:</summary>
+                            <ul>
+                                <li>ConnectionUrl: null
+                                <li>Id: {{Servers.[0].Id}}
+                                <li>Name: {{Servers.[0].Name}}
+                                <li>PrimaryIp: {{Servers.[0].PrimaryIp}}
+                                <li>PrimaryPort: {{Servers.[0].PrimaryPort}}
+                                <li>PrimarySslPort: {{Servers.[0].PrimarySslPort}}
+                                <li>SecondaryIp: {{Servers.[0].SecondaryIp}}
+                                <li>SecondaryPort: {{Servers.[0].SecondaryPort}}
+                                <li>SecondarySslPort: {{Servers.[0].SecondarySslPort}}
+                                <li>Url: {{Servers.[0].Url}}
+                            </ul>
+                        </details>
+                    </ul>                
+                </details>  
+                </ul>
+            </div>
+        {{/each}}
+    </script>
+</body>
+
+</html>

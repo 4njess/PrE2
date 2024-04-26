@@ -1,0 +1,56 @@
+.tree{
+    list-style: none;
+    
+}
+.tree li{
+    display: block;
+    position: relative;
+    margin-bottom: 16px;
+    margin-left: -18px;
+    
+}
+.tree ul li{
+    margin-bottom: 6px;
+    left: 12px;
+    display: block;
+    position: relative;
+}
+.tree ul li::before{
+    display: block;
+    position: absolute;
+    content: 'ι';
+    left: -10px;
+    top: -1px;
+}
+.specialList ul li{
+    display: block;
+    content: '';
+}
+
+.tree ul{
+    padding-left: 18px;
+    margin-top: 10px;
+}
+.tree summary{
+    display: block;
+}
+
+.tree summary::before{
+    content       : 'μ';
+    display       : block;
+    position      : absolute;
+    cursor: pointer;
+    left: -20px;
+  }
+  
+.tree summary::before{
+    z-index    : 1;
+}
+  
+.tree details[open] > summary::before{
+ content: 'υ';
+}
+.tree ul::before{
+    margin-left: 10px;
+}
+
